@@ -1,0 +1,11 @@
+# encoding: utf-8
+#
+
+en:
+  js:
+    cancel: "Cancel"
+    proceed: "Continue"
+    interstitial:
+      title: 'WEGO Health message'
+      highlight: 'You are now leaving WEGOHealth.com'
+      message: 'WEGO Health do not review the information contained on third-party websites and/or databases for content, accuracy or completeness. Use of and access to this information is subject to the terms, privacy policy, limitations and conditions set by the website and/or database provider. WEGO Health are not responsible for the accuracy or any other aspect of the information contained on third-party websites and/or databases, nor do WEGO Health necessarily endorse such websites and/or databases.'
