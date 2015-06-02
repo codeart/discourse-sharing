@@ -11,7 +11,7 @@ export default Ember.Component.extend({
         set("model", this.get("topic")).
         set("model.share_kind", type);
 
-      if (!type === "email") {
+      if (type !== "email") {
         showModal('interstitial', {model: this.get("topic"), title: "interstitial.title"});
       } else {
         const win = window.open("mailto:?subject=" + this.get("topic.title") + "&body=" + document.location.href);
