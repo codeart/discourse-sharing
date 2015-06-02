@@ -10,10 +10,12 @@ export default Ember.ObjectController.extend({
   actions: {
     cancel: function() {
       this.closeModal();
+      this.track("cancel", "interstitial", "modal-footer");
     },
 
     proceed: function() {
       this.closeModal();
+      this.track("continue", "interstitial", "modal-footer");
 
       const kind = this.get("model.share_kind");
 
@@ -65,5 +67,27 @@ export default Ember.ObjectController.extend({
                 ',screenX=' + left + ',screenY=' + top + ',scrollbars=1';
 
     window.open(url, 'sharer', params);
+  },
+
+  track: function(event_name, location, sub_location) {
+    if (typeof eTkr !== "object") return;
+
+    const project_code =
+      typeof WEGO_PROJECT_CODE === "string" ? WEGO_PROJECT_CODE : "";
+
+    eTkr.wegoTrack(
+      "share",
+      this.get("model.share_kind"),
+      project_code,
+      location,
+      sub_location,
+      "button",
+      event_name,
+      event_name,
+      null,
+      null//,
+      //"content",
+      //null // TODO: send shared message?
+    );
   }
 })

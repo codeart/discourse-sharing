@@ -9,8 +9,9 @@ export default Ember.ContainerView.extend({
 
   init: function() {
     this._super();
+
     if (this.get('hidden')) return;
 
-    this.pushObject(this.createChildView(SharingToolComponent, {topic: this.get('topic')}));
+    this.pushObject(this.createChildView(SharingToolComponent, { topic: this.get('topic') }));
   }
 });

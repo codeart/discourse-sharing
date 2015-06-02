@@ -12,6 +12,8 @@ export default Ember.Component.extend({
         set("model.share_kind", type);
 
       showModal('interstitial', { model: this.get("topic"), title: "interstitial.title" });
+
+      controller.track("click", "topic", "sharing-tools");
     }
   }
 });
